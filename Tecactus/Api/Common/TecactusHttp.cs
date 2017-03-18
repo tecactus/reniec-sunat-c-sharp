@@ -14,12 +14,12 @@ namespace Tecactus.Api.Common
     {
         private RestClient client;
         protected RestRequest request { get; set; }
-        private object actionType;
+        private object referenceType;
         private string token;
 
         public TecactusHttp(object instance, string token)
         {
-            this.actionType = instance;
+            this.referenceType = instance;
             this.token = token;
             this.client = new RestClient("https://tecactus.com/api");
         }
@@ -44,7 +44,7 @@ namespace Tecactus.Api.Common
             switch (response.StatusCode.GetHashCode())
             {
                 case 200:
-                    if (this.actionType is Dni)
+                    if (this.referenceType is Dni)
                     {
                         switch (response.Content)
                         {
