@@ -31,7 +31,7 @@ namespace Tecactus.Api.Reniec
             }
         }
 
-        private bool validate(string dni)
+        public bool validate(string dni)
         {
             int num;
             if (int.TryParse(dni, out num))

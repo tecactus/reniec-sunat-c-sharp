@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Tecactus.Api</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>paulvl</authors>
+    <owners>paulvl</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Librería para consultar datos RENIEC y SUNAT en C#</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>c# reniec sunat api libreria library consulta</tags>
+  </metadata>
+</package>

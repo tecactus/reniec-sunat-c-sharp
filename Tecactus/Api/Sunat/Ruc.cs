@@ -32,7 +32,7 @@ namespace Tecactus.Api.Sunat
             }
         }
 
-        private bool validate(string ruc)
+        public bool validate(string ruc)
         {
             double num;
             if (Double.TryParse(ruc, out num))
