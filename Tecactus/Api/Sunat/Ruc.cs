@@ -15,16 +15,16 @@ namespace Tecactus.Api.Sunat
 
         public Ruc(string token)
         {
-            this.httpClient = new TecactusHttp(this, token);
+            httpClient = new TecactusHttp(this, token);
         }
 
         public Company get(string ruc)
         {
-            this.httpClient.setRequest("sunat/query/ruc", Method.POST, "Tecactus.Api.Sunat.Company");
-            if (this.validate(ruc))
+            httpClient.setRequest("sunat/query/ruc", Method.POST, "Tecactus.Api.Sunat.Company");
+            if (validate(ruc))
             {
-                this.httpClient.addParameter("ruc", ruc);
-                return this.httpClient.execute<Company>();
+                httpClient.addParameter("ruc", ruc);
+                return httpClient.execute<Company>();
             }
             else
             {
@@ -32,7 +32,7 @@ namespace Tecactus.Api.Sunat
             }
         }
 
-        public bool validate(string ruc)
+        public static bool validate(string ruc)
         {
             double num;
             if (Double.TryParse(ruc, out num))

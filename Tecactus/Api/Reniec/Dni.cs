@@ -15,23 +15,23 @@ namespace Tecactus.Api.Reniec
 
         public Dni(string token)
         {
-            this.httpClient = new TecactusHttp(this, token);
-            this.httpClient.setRequest("reniec/dni", Method.POST, "Tecactus.Api.Reniec.Person");
+            httpClient = new TecactusHttp(this, token);
+            httpClient.setRequest("reniec/dni", Method.POST, "Tecactus.Api.Reniec.Person");
         }
 
         public Person get(string dni)
         {
-            if (this.validate(dni))
+            if (validate(dni))
             {
-                this.httpClient.addParameter("dni", dni);
-                return this.httpClient.execute<Person>();
+                httpClient.addParameter("dni", dni);
+                return httpClient.execute<Person>();
             } else
             {
                 throw new InvalidDniException("DNI no es válido.");
             }
         }
 
-        public bool validate(string dni)
+        public static bool validate(string dni)
         {
             int num;
             if (int.TryParse(dni, out num))

@@ -19,32 +19,32 @@ namespace Tecactus.Api.Common
 
         public TecactusHttp(object instance, string token)
         {
-            this.referenceType = instance;
+            referenceType = instance;
             this.token = token;
-            this.client = new RestClient("https://tecactus.com/api");
+            client = new RestClient("https://tecactus.com/api");
         }
 
         public void setRequest(string url, Method method, string rootElement)
         {
-            this.request = new RestRequest(url, method);
-            this.request.RootElement = rootElement;
-            this.request.AddHeader("Accept", "application/json");
-            this.request.AddHeader("Authorization", "Bearer " + this.token);
+            request = new RestRequest(url, method);
+            request.RootElement = rootElement;
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Authorization", "Bearer " + token);
         }
 
         public void addParameter(string name, string data)
         {
-            this.request.AddParameter(name, data);
+            request.AddParameter(name, data);
         }
 
         public T execute<T>() where T : new()
         {
-            var response = this.client.Execute<T>(this.request);
+            var response = client.Execute<T>(request);
             
             switch (response.StatusCode.GetHashCode())
             {
                 case 200:
-                    if (this.referenceType is Dni)
+                    if (referenceType is Dni)
                     {
                         switch (response.Content)
                         {
