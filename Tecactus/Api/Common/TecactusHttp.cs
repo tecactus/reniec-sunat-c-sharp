@@ -21,7 +21,7 @@ namespace Tecactus.Api.Common
         {
             referenceType = instance;
             this.token = token;
-            client = new RestClient("https://tecactus.com/api");
+            client = new RestClient("https://consulta.pe/api");
         }
 
         public void setRequest(string url, Method method, string rootElement)
